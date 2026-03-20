@@ -5,22 +5,25 @@ const projects = [
     title: "Automated Cricket ETL Pipeline",
     tech: "AWS EC2/RDS",
     metric: "40% ingestion optimization",
+    github: "https://github.com/srijanghosh05/Cricket-Live-Data-ETL-Pipeline"
   },
   {
     title: "Visibility Distance Prediction",
     tech: "Vectorized Processing",
     metric: "48% accuracy gain",
+    github: "https://github.com/srijanghosh05/Visibility-Distance-Prediction"
   },
   {
     title: "Hand-written Digit Recognizer",
     tech: "CNN",
     metric: "15% latency reduction",
+    github: "https://github.com/srijanghosh05/hand-writtern-digit-recogniser"
   }
 ];
 ---
 <section id="vault" class="relative space-y-16">
   <!-- Drifting Background Title -->
-  <div class="kinetic-heading text-gray-200 dark:text-white/[0.04] absolute -top-8 left-0">THE VAULT</div>
+  <div class="kinetic-heading text-gray-200 dark:text-white/[0.04] absolute -top-8 left-0 pointer-events-none">THE VAULT</div>
 
   <h3 class="text-2xl font-bold font-jetbrains tracking-tight section-reveal relative z-10">Projects <span class="text-red-600 dark:text-red-500">/></span></h3>
   
@@ -38,10 +41,18 @@ const projects = [
         </div>
         
         <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-800 group-hover:border-gray-400 dark:group-hover:border-red-900/50 transition-colors">
-          <p class="font-jetbrains text-sm text-cyber-citrus flex items-center justify-between">
-            {project.metric}
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </p>
+          <div class="font-jetbrains text-sm text-cyber-citrus flex items-center justify-between">
+            <span>{project.metric}</span>
+            <a 
+              href={project.github} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 p-1 hover:text-black dark:hover:text-white relative z-20 pointer-events-auto" 
+              aria-label="View repository"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     ))}

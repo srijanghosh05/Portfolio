@@ -4,16 +4,18 @@ import Hero from '../components/Hero.astro';
 import Bio from '../components/Bio.astro';
 import Vault from '../components/Vault.astro';
 import Experience from '../components/Experience.astro';
+import Resume from '../components/Resume.astro';
 import Skills from '../components/Skills.astro';
 import Training from '../components/Training.astro';
 import Certifications from '../components/Certifications.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Srijan Ghosh | Data Engineer & AI Specialist">
 	<Hero />
 
 	<!-- Cinematic Sections: High-contrast color blocks -->
-	<div class="liquid-section bg-gray-50 dark:bg-[#0a0a0a] h-screen" id="vault">
+	<div class="liquid-section bg-gray-50 dark:bg-[#0d0d0d] h-screen" id="vault">
 		<div class="h-full flex flex-col justify-center py-24 px-6">
 			<div class="max-w-5xl mx-auto w-full">
 				<Vault />
@@ -21,7 +23,7 @@ import Certifications from '../components/Certifications.astro';
 		</div>
 	</div>
 
-	<div class="liquid-section bg-white dark:bg-[#1a0000] h-screen" id="experience">
+	<div class="liquid-section bg-gray-50 dark:bg-[#0a0a0a] h-screen" id="experience">
 		<div class="h-full flex flex-col justify-center py-24 px-6">
 			<div class="max-w-5xl mx-auto w-full">
 				<Experience />
@@ -45,11 +47,22 @@ import Certifications from '../components/Certifications.astro';
 		</div>
 	</div>
 
-	<div class="liquid-section bg-white dark:bg-[#111111] h-screen" id="certifications">
+	<div class="liquid-section bg-white dark:bg-[#0d0d0d] h-screen" id="certifications">
 		<div class="h-full flex flex-col justify-center py-24 px-6">
 			<div class="max-w-5xl mx-auto w-full">
 				<Certifications />
 			</div>
 		</div>
 	</div>
+
+	<div class="liquid-section bg-gray-100 dark:bg-[#0a0a0a] h-screen" id="resume">
+		<div class="h-full flex flex-col justify-center py-24 px-6">
+			<div class="max-w-5xl mx-auto w-full">
+				<Resume />
+			</div>
+		</div>
+	</div>
+
+	<!-- Minimalist Terminal Footer -->
+	<Footer />
 </Layout>

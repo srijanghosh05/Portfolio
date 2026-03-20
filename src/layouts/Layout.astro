@@ -26,12 +26,13 @@ const { title } = Astro.props;
         <!-- Film Grain Overlay -->
         <div class="film-grain" aria-hidden="true"></div>
 
-        <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center gap-5 lg:gap-8 px-6 lg:px-8 py-3 rounded-full bg-white/30 dark:bg-data-slate/80 backdrop-blur-xl border border-white/50 dark:border-gray-800 shadow-md">
+        <nav id="main-nav" class="fixed top-6 left-1/2 -translate-x-1/2 transition-all duration-700 ease-in-out opacity-0 -translate-y-24 z-50 hidden md:flex items-center gap-5 lg:gap-8 px-6 lg:px-8 py-3 rounded-full bg-white/30 dark:bg-data-slate/80 backdrop-blur-xl border border-white/50 dark:border-gray-800 shadow-md">
             <a href="#vault" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Vault</a>
             <a href="#experience" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Timeline</a>
             <a href="#skills" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Skills</a>
             <a href="#training" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Training</a>
             <a href="#certifications" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Certificates</a>
+            <a href="#resume" class="text-sm font-medium text-slate-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors no-underline">Resume</a>
         </nav>
 
         <div class="fixed top-6 right-6 z-50">
@@ -166,6 +167,33 @@ const { title } = Astro.props;
                     });
                 });
 
+                // Wipe reveal UP (for Resume container)
+                document.querySelectorAll('.wipe-reveal-up').forEach((el) => {
+                    gsap.to(el, {
+                        clipPath: "inset(0 0 0 0)",
+                        duration: 0.8,
+                        ease: snap,
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                        }
+                    });
+                });
+
+                // Simple Fade-In for Terminal Footer
+                document.querySelectorAll('.footer-fade-in').forEach((el) => {
+                    gsap.fromTo(el, { opacity: 0 }, {
+                        opacity: 1,
+                        duration: 1.2,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 95%",
+                        }
+                    });
+                });
+
                 // Drifting year markers: slow vertical parallax
                 document.querySelectorAll('.drift-year').forEach((year) => {
                     gsap.fromTo(year,
@@ -206,6 +234,38 @@ const { title } = Astro.props;
                         start: "top 70%",
                         onEnter: () => bioEl.classList.add('glitch-in'),
                         once: true,
+                    });
+                }
+
+                // Split Timeline Animation
+                const leftCol = document.querySelector('.split-col-left');
+                const rightCol = document.querySelector('.split-col-right');
+
+                if (leftCol && rightCol) {
+                    gsap.to(leftCol, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.9,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: "#experience",
+                            start: "top 60%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+
+                    // 0.2s Delay on the right side
+                    gsap.to(rightCol, {
+                        opacity: 1,
+                        x: 0,
+                        duration: 0.9,
+                        delay: 0.2,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: "#experience",
+                            start: "top 60%",
+                            toggleActions: "play none none none"
+                        }
                     });
                 }
             });

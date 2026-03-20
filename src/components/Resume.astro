@@ -1,0 +1,87 @@
+---
+// Resume.astro
+---
+<section id="resume-section" class="relative space-y-12">
+  <!-- Drifting Background Title -->
+  <div class="kinetic-heading text-gray-200 dark:text-white/[0.04] absolute -top-12 right-0 pointer-events-none text-right">RESUME</div>
+
+  <h3 class="text-2xl font-bold font-jetbrains tracking-tight section-reveal relative z-10 w-full">The Data File <span class="text-cyber-citrus">/></span></h3>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative z-10 w-full items-center">
+    
+    <!-- Left Column: Document Preview (The Viewer) -->
+    <div class="resume-preview wipe-reveal-up relative w-full aspect-[1/1.4] max-h-[70vh] rounded-lg border border-cyber-citrus overflow-hidden shadow-[0_0_30px_rgba(204,255,0,0.1)] bg-white dark:bg-[#1a1a1a] flex items-center justify-center">
+      <!-- Embedded PDF Preview -->
+      <object 
+        data="/Srijan's CV.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+        type="application/pdf" 
+        class="w-full h-full absolute inset-0 z-10"
+      >
+        <!-- Fallback if PDF embedding is not supported by browser -->
+        <div class="flex flex-col items-center justify-center p-8 text-center h-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <p class="text-slate-500 font-jetbrains text-sm">Preview unavailable.</p>
+            <p class="text-slate-500 font-jetbrains text-sm mt-1">Please download the file to view.</p>
+        </div>
+      </object>
+      <!-- Corner Accents -->
+      <div class="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-cyber-citrus z-20 pointer-events-none"></div>
+      <div class="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-cyber-citrus z-20 pointer-events-none"></div>
+    </div>
+
+    <!-- Right Column: The Action -->
+    <div class="resume-content flex flex-col justify-center space-y-8 lg:pl-4 drop-child">
+      
+      <div class="space-y-2">
+        <h4 class="text-xl md:text-2xl font-jetbrains font-bold text-slate-900 dark:text-white uppercase tracking-widest">
+          Srijan Ghosh <span class="text-cyber-citrus hidden sm:inline">—</span><br class="sm:hidden" /> <span class="text-slate-500 dark:text-gray-400">2026 Version</span>
+        </h4>
+        <p class="text-slate-600 dark:text-gray-400 font-medium max-w-md">
+          A comprehensive overview of my technical progression, system architecture experience, and core competencies.
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <a 
+        href="/Srijan's CV.pdf" 
+        download="Srijan Ghosh - Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-cyber-citrus text-black font-jetbrains font-bold uppercase tracking-widest overflow-hidden hover:shadow-[0_0_25px_rgba(204,255,0,0.6)] transition-all duration-300 w-fit"
+      >
+        <span class="relative z-10 flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download Resume
+        </span>
+        <!-- Glitch Overlay effect on hover -->
+        <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 group-hover:animate-pulse z-0 mix-blend-overlay"></div>
+      </a>
+
+      <!-- Highlights -->
+      <div class="pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4">
+        <ul class="space-y-4 font-inter text-slate-800 dark:text-gray-300">
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-sm bg-cyber-citrus shadow-[0_0_8px_rgba(204,255,0,0.6)]"></span>
+            <span class="font-bold tracking-wide">40% ETL Optimization</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-sm bg-cyber-citrus shadow-[0_0_8px_rgba(204,255,0,0.6)]"></span>
+            <span class="font-bold tracking-wide">5-Star Python HackerRank</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <span class="w-2 h-2 rounded-sm bg-cyber-citrus shadow-[0_0_8px_rgba(204,255,0,0.6)]"></span>
+            <span class="font-bold tracking-wide">AWS & AI Specialized</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Unique vertical wipe reveal for the resume preview */
+  .wipe-reveal-up {
+    clip-path: inset(100% 0 0 0);
+  }
+</style>
